@@ -11,42 +11,18 @@ public class Location {
     @GeneratedValue
     private long id;
 
-    private long lng;
-    private long lat;
+    private Float lng;
+    private Float lat;
 
-    private long radiusInMeters;
+    private Long radiusInMeters;
 
     public Location() {
         //jpa
     }
 
-    public Location(long lng, long lat, long radiusInMeters) {
+    public Location(Float lng, Float lat, Long radiusInMeters) {
         this.lng = lng;
         this.lat = lat;
-        this.radiusInMeters = radiusInMeters;
-    }
-
-    public long getLng() {
-        return lng;
-    }
-
-    public void setLng(long lng) {
-        this.lng = lng;
-    }
-
-    public long getLat() {
-        return lat;
-    }
-
-    public void setLat(long lat) {
-        this.lat = lat;
-    }
-
-    public long getRadiusInMeters() {
-        return radiusInMeters;
-    }
-
-    public void setRadiusInMeters(long radiusInMeters) {
         this.radiusInMeters = radiusInMeters;
     }
 
@@ -58,5 +34,27 @@ public class Location {
         this.id = id;
     }
 
+    public Float getLng() {
+        return lng;
+    }
 
+    public void setLng(Float lng) {
+        this.lng = lng;
+    }
+
+    public Float getLat() {
+        return lat;
+    }
+
+    public void setLat(Float lat) {
+        this.lat = lat;
+    }
+
+    public Long getRadiusInMeters() {
+        return radiusInMeters;
+    }
+
+    public void setRadiusInMeters(Long radiusInMeters) {
+        this.radiusInMeters = radiusInMeters;
+    }
 }
