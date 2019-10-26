@@ -4,9 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+
+import java.time.LocalDate;
+
 
 @Entity
 public class Result {
@@ -25,13 +26,13 @@ public class Result {
     private boolean approved;
     private String status;
     private String proof;
-    private Date resultDate;
+    private LocalDate resultDate;
 
     public Result() {
     }
 
-    public Result(@NotEmpty Long challengeId, @NotEmpty Long userId, boolean approved, String status, String proof,
-            Date resultDate) {
+    public Result(@NotNull Long challengeId, @NotNull Long userId, boolean approved, String status, String proof,
+            LocalDate resultDate) {
         this.challengeId = challengeId;
         this.userId = userId;
         this.approved = approved;
@@ -40,27 +41,27 @@ public class Result {
         this.resultDate = resultDate;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getChallengeId() {
+    public Long getChallengeId() {
         return challengeId;
     }
 
-    public void setChallengeId(long challengeId) {
+    public void setChallengeId(Long challengeId) {
         this.challengeId = challengeId;
     }
 
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -72,6 +73,14 @@ public class Result {
         this.approved = approved;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getProof() {
         return proof;
     }
@@ -80,31 +89,11 @@ public class Result {
         this.proof = proof;
     }
 
-    public Date getResultDate() {
+    public LocalDate getResultDate() {
         return resultDate;
     }
 
-    public void setResultDate(Date resultDate) {
+    public void setResultDate(LocalDate resultDate) {
         this.resultDate = resultDate;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setChallengeId(Long challengeId) {
-        this.challengeId = challengeId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 }

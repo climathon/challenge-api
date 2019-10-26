@@ -45,7 +45,7 @@ public class ChallengeController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE})
-	public void updateChallenge(@RequestBody Challenge challenge){
+	public void createChallenge(@RequestBody Challenge challenge){
 		LOGGER.info("Create challenge");
 		challengeRepository.save(challenge);
 	}

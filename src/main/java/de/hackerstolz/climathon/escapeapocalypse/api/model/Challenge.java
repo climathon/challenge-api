@@ -1,22 +1,15 @@
 package de.hackerstolz.climathon.escapeapocalypse.api.model;
 
-import java.util.Date;
-import java.util.List;
-
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Transient;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.URL;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
 public class Challenge {
@@ -29,57 +22,42 @@ public class Challenge {
 	private String name;
 
 	@NotEmpty
-	@JsonInclude
-	@Transient
 	@URL
 	private String iconUrl;
 
 	@NotEmpty
-	@JsonInclude
-	@Transient
-	private List<String> categories;
+	private String category;
 
-	@JsonInclude
-	@Transient
-	private Date start;
+	private LocalDate startDate;
 
-	@JsonInclude
-	@Transient
-	private Date end;
+	private LocalDate endDate;
 
-	@JsonInclude
-	@Transient
 	private String description;
 
-	@JsonInclude
-	@Transient
 	private long durationInSeconds;
 
-	@JsonInclude
-	@Transient
 	private int lifePoints;
 
-	@JsonInclude
-	@Transient
-	@OneToOne
-	@JoinColumn(name = "locationId")
-	private Location location;
+//	@OneToOne
+//	@JoinColumn(name = "locationId")
+	private Long locationId;
 
 	public Challenge() {
 		// jpa
 	}
 
-	public Challenge(@NotEmpty String name, @NotEmpty String iconUrl, @NotEmpty List<String> categories, Date start,
-			Date end, String description, long durationInSeconds, int lifePoints, Location location) {
+	public Challenge(@NotEmpty String name, @NotEmpty @URL String iconUrl, @NotEmpty String category,
+			LocalDate startDate, LocalDate endDate, String description, long durationInSeconds, int lifePoints,
+			Long locationId) {
 		this.name = name;
 		this.iconUrl = iconUrl;
-		this.categories = categories;
-		this.start = start;
-		this.end = end;
+		this.category = category;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.description = description;
 		this.durationInSeconds = durationInSeconds;
 		this.lifePoints = lifePoints;
-		this.location = location;
+		this.locationId = locationId;
 	}
 
 	public Long getId() {
@@ -98,20 +76,36 @@ public class Challenge {
 		this.name = name;
 	}
 
-	public Date getStart() {
-		return start;
+	public String getIconUrl() {
+		return iconUrl;
 	}
 
-	public void setStart(Date start) {
-		this.start = start;
+	public void setIconUrl(String iconUrl) {
+		this.iconUrl = iconUrl;
 	}
 
-	public Date getEnd() {
-		return end;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setEnd(Date end) {
-		this.end = end;
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
 	}
 
 	public String getDescription() {
@@ -138,27 +132,11 @@ public class Challenge {
 		this.lifePoints = lifePoints;
 	}
 
-	public Location getLocation() {
-		return location;
+	public Long getLocationId() {
+		return locationId;
 	}
 
-	public void setLocation(Location location) {
-		this.location = location;
-	}
-
-	public String getIconUrl() {
-		return iconUrl;
-	}
-
-	public void setIconUrl(String iconUrl) {
-		this.iconUrl = iconUrl;
-	}
-
-	public List<String> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<String> categories) {
-		this.categories = categories;
+	public void setLocationId(Long locationId) {
+		this.locationId = locationId;
 	}
 }
