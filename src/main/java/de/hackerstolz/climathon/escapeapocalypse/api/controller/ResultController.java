@@ -44,7 +44,7 @@ public class ResultController {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE})
-    public void updateResult(@RequestBody Result result){
+    public void createResult(@RequestBody Result result){
         LOGGER.info("Create result");
         resultRepository.save(result);
     }

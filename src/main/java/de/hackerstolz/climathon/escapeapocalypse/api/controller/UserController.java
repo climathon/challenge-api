@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void updateUser(@RequestBody EaUser user){
+    public void createUser(@RequestBody EaUser user){
         userRepository.save(user);
     }
 

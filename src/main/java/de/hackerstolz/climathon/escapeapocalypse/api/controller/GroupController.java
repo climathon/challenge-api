@@ -40,7 +40,7 @@ public class GroupController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void updateGroup(@RequestBody EaUserGroup group) {
+    public void createGroup(@RequestBody EaUserGroup group) {
         groupRepository.save(group);
     }
 
