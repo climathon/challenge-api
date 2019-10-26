@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(Constants.API + Constants.Memberships)
+@RequestMapping(Constants.API + Constants.MEMBERSHIPS)
 public class MembershipController {
     Logger LOGGER = LoggerFactory.getLogger(MembershipController.class);
 

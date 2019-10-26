@@ -14,7 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(Constants.API + Constants.Challenges)
+@RequestMapping(Constants.API + Constants.CHALLENGES)
 public class ChallengeController {
 	Logger LOGGER = LoggerFactory.getLogger(ChallengeController.class);
 

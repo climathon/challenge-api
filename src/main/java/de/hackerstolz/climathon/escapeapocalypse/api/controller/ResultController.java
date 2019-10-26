@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(Constants.API + Constants.Results)
+@RequestMapping(Constants.API + Constants.RESULTS)
 public class ResultController {
     Logger LOGGER = LoggerFactory.getLogger(ResultController.class);
 
