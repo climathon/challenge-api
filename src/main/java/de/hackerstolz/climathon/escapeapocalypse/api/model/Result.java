@@ -23,18 +23,19 @@ public class Result {
     private Long userId;
 
     private boolean approved;
-    private boolean inApproval;
+    private String status;
     private String proof;
     private Date resultDate;
 
     public Result() {
     }
 
-    public Result(@NotEmpty long challengeId, @NotEmpty long userId, boolean approved, boolean inApproval, String proof, Date resultDate) {
+    public Result(@NotEmpty Long challengeId, @NotEmpty Long userId, boolean approved, String status, String proof,
+            Date resultDate) {
         this.challengeId = challengeId;
         this.userId = userId;
         this.approved = approved;
-        this.inApproval = inApproval;
+        this.status = status;
         this.proof = proof;
         this.resultDate = resultDate;
     }
@@ -71,14 +72,6 @@ public class Result {
         this.approved = approved;
     }
 
-    public boolean isInApproval() {
-        return inApproval;
-    }
-
-    public void setInApproval(boolean inApproval) {
-        this.inApproval = inApproval;
-    }
-
     public String getProof() {
         return proof;
     }
@@ -93,5 +86,25 @@ public class Result {
 
     public void setResultDate(Date resultDate) {
         this.resultDate = resultDate;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setChallengeId(Long challengeId) {
+        this.challengeId = challengeId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
