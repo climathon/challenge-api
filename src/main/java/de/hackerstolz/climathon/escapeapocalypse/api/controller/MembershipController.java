@@ -45,8 +45,8 @@ public class MembershipController {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE})
-    public void createResult(@RequestBody EAMembership eaMembership){
-        LOGGER.info("Create challenge");
+    public void createMembership(@RequestBody EAMembership eaMembership){
+        LOGGER.info("Create membership");
         membershipRepository.save(eaMembership);
     }
 
