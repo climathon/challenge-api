@@ -1,6 +1,8 @@
 package de.hackerstolz.climathon.escapeapocalypse.api.model;
 
 import java.time.LocalDate;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +10,7 @@ import javax.persistence.Id;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
 
@@ -32,6 +35,7 @@ public class Challenge {
 
 	private LocalDate endDate;
 
+	@Column(length = 2000)
 	private String description;
 
 	private long durationInSeconds;
