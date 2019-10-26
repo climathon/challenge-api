@@ -1,5 +1,6 @@
 package de.hackerstolz.climathon.escapeapocalypse.api.controller;
 
+import de.hackerstolz.climathon.escapeapocalypse.api.Constants;
 import de.hackerstolz.climathon.escapeapocalypse.api.model.EaUser;
 import de.hackerstolz.climathon.escapeapocalypse.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping(Constants.API + Constants.USERS)
 public class UserController {
 
     @Autowired

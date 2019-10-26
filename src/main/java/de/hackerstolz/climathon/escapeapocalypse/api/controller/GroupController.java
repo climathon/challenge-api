@@ -1,5 +1,6 @@
 package de.hackerstolz.climathon.escapeapocalypse.api.controller;
 
+import de.hackerstolz.climathon.escapeapocalypse.api.Constants;
 import de.hackerstolz.climathon.escapeapocalypse.api.model.EaUserGroup;
 import de.hackerstolz.climathon.escapeapocalypse.api.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/group")
+@RequestMapping(Constants.API + Constants.GROUPS)
 public class GroupController {
 
     @Autowired
