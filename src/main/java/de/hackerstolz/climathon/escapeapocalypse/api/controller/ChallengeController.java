@@ -2,9 +2,12 @@ package de.hackerstolz.climathon.escapeapocalypse.api.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.amqp.AbstractRabbitListenerContainerFactoryConfigurer;
 import org.springframework.http.MediaType;
@@ -17,12 +20,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.hackerstolz.climathon.escapeapocalypse.api.Constants;
 import de.hackerstolz.climathon.escapeapocalypse.api.model.Challenge;
 import de.hackerstolz.climathon.escapeapocalypse.api.repository.ChallengeRepository;
 
 @RestController
-@RequestMapping("/challenges")
+@RequestMapping(Constants.API + Constants.Challenges)
 public class ChallengeController {
+	Logger LOGGER = LoggerFactory.getLogger(ChallengeController.class);
+
 	@Autowired
 	private ChallengeRepository challengeRepository;
 
@@ -38,17 +44,20 @@ public class ChallengeController {
 		return optionalChallenge.get();
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = { MediaType.APPLICATION_JSON_VALUE})
 	public void updateChallenge(@RequestBody Challenge challenge, @PathVariable("id") Long id){
+		LOGGER.info("Update challenge");
 		Optional<Challenge> challengeOptional = challengeRepository.findById(id);
 		if(!challengeOptional.isPresent()) {
 			throw new IllegalArgumentException("challenge not found");
 		}
+		challenge.setId(id);
 		challengeRepository.save(challenge);
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE})
 	public void updateChallenge(@RequestBody Challenge challenge){
+		LOGGER.info("Create challenge");
 		challengeRepository.save(challenge);
 	}
 
