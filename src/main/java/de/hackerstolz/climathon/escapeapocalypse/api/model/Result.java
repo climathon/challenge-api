@@ -14,13 +14,13 @@ public class Result {
     @Id
     @NotNull
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @NotEmpty
-    private long challengeId;
+    private Long challengeId;
 
     @NotEmpty
-    private long userId;
+    private Long userId;
 
     private boolean approved;
     private boolean inApproval;
