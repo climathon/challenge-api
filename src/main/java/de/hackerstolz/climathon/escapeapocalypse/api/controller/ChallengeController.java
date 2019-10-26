@@ -50,5 +50,11 @@ public class ChallengeController {
 		challengeRepository.save(challenge);
 	}
 
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public void deleteChallenge(@PathVariable Long id) {
+		LOGGER.info("Delete challenge with ID:" + id);
+		challengeRepository.deleteById(id);
+	}
+
 
 }
