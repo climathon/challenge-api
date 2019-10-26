@@ -6,6 +6,8 @@ public class Constants {
 	public static final String CHALLENGES = "/challenges";
 	public static final String MEMBERSHIPS = "/memberships";
 	public static final String RESULTS = "/results";
+	public static final String USERS = "/users";
+	public static final String GROUPS = "/groups";
 	public static final String LOCATIONS = "/locations";
 
 }
