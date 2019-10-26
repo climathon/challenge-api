@@ -21,7 +21,7 @@ public class Result {
 
     @NotEmpty
     private long userId;
-
+    private String status;
     private boolean approved;
     private boolean inApproval;
     private String proof;
@@ -30,13 +30,14 @@ public class Result {
     public Result() {
     }
 
-    public Result(@NotEmpty long challengeId, @NotEmpty long userId, boolean approved, boolean inApproval, String proof, Date resultDate) {
+    public Result(@NotEmpty long challengeId, @NotEmpty long userId, boolean approved, boolean inApproval, String proof, Date resultDate, String status) {
         this.challengeId = challengeId;
         this.userId = userId;
         this.approved = approved;
         this.inApproval = inApproval;
         this.proof = proof;
         this.resultDate = resultDate;
+        this.status = status;
     }
 
     public long getId() {
@@ -93,5 +94,13 @@ public class Result {
 
     public void setResultDate(Date resultDate) {
         this.resultDate = resultDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
