@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void updateChallenge(@RequestBody u_User user){
+    public void updateUser(@RequestBody u_User user){
         userRepository.save(user);
     }
 
