@@ -57,7 +57,49 @@ public class ChallengeController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-	public void updateChallengePartial(@RequestBody Challenge challenge){
-		// to be implemented
+	public void updateChallengePartial(@RequestBody Challenge challenge, @PathVariable Long id){
+		Optional<Challenge> optionalChallenge = challengeRepository.findById(id);
+		Challenge persistedChallenge = optionalChallenge.get();
+		if(persistedChallenge == null) {
+			new IllegalArgumentException("challenge not found");
+		}
+
+		if(challenge.getCategory() != null) {
+			persistedChallenge.setCategory(challenge.getCategory());
+		}
+
+		if(challenge.getDescription() != null) {
+			persistedChallenge.setDescription(challenge.getDescription());
+		}
+
+		if(challenge.getDurationInSeconds() != null) {
+			persistedChallenge.setDurationInSeconds(challenge.getDurationInSeconds());
+		}
+
+		if(challenge.getEndDate() != null) {
+			persistedChallenge.setEndDate(challenge.getEndDate());
+		}
+
+		if(challenge.getIconUrl() != null) {
+			persistedChallenge.setIconUrl(challenge.getIconUrl());
+		}
+
+		if(challenge.getLifePoints() != null) {
+			persistedChallenge.setLifePoints(challenge.getLifePoints());
+		}
+
+		if(challenge.getLocationId() != null) {
+			persistedChallenge.setLocationId(challenge.getLocationId());
+		}
+
+		if(challenge.getName() != null) {
+			persistedChallenge.setName(challenge.getName());
+		}
+
+		if(challenge.getStartDate() != null) {
+			persistedChallenge.setStartDate(challenge.getStartDate());
+		}
+
+		challengeRepository.save(persistedChallenge);
 	}
 }

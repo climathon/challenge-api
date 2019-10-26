@@ -38,9 +38,9 @@ public class Challenge {
 	@Column(length = 2000)
 	private String description;
 
-	private long durationInSeconds;
+	private Long durationInSeconds;
 
-	private int lifePoints;
+	private Integer lifePoints;
 
 //	@OneToOne
 //	@JoinColumn(name = "locationId")
@@ -51,7 +51,7 @@ public class Challenge {
 	}
 
 	public Challenge(@NotEmpty String name, @NotEmpty @URL String iconUrl, @NotEmpty String category,
-			LocalDate startDate, LocalDate endDate, String description, long durationInSeconds, int lifePoints,
+			LocalDate startDate, LocalDate endDate, String description, Long durationInSeconds, Integer lifePoints,
 			Long locationId) {
 		this.name = name;
 		this.iconUrl = iconUrl;
@@ -120,19 +120,19 @@ public class Challenge {
 		this.description = description;
 	}
 
-	public long getDurationInSeconds() {
+	public Long getDurationInSeconds() {
 		return durationInSeconds;
 	}
 
-	public void setDurationInSeconds(long durationInSeconds) {
+	public void setDurationInSeconds(Long durationInSeconds) {
 		this.durationInSeconds = durationInSeconds;
 	}
 
-	public int getLifePoints() {
+	public Integer getLifePoints() {
 		return lifePoints;
 	}
 
-	public void setLifePoints(int lifePoints) {
+	public void setLifePoints(Integer lifePoints) {
 		this.lifePoints = lifePoints;
 	}
 
