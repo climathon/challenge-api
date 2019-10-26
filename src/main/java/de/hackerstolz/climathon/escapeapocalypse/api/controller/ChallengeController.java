@@ -34,7 +34,7 @@ public class ChallengeController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = { MediaType.APPLICATION_JSON_VALUE})
-	public void updateChallenge(@RequestBody Challenge challenge, @PathVariable("id") Long id){
+	public void createChallenge(@RequestBody Challenge challenge, @PathVariable("id") Long id){
 		LOGGER.info("Update challenge");
 		Optional<Challenge> challengeOptional = challengeRepository.findById(id);
 		if(!challengeOptional.isPresent()) {
@@ -45,7 +45,7 @@ public class ChallengeController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE})
-	public void updateChallenge(@RequestBody Challenge challenge){
+	public void createChallenge(@RequestBody Challenge challenge){
 		LOGGER.info("Create challenge");
 		challengeRepository.save(challenge);
 	}
