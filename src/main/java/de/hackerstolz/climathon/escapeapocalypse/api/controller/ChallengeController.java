@@ -56,5 +56,10 @@ public class ChallengeController {
 		challengeRepository.deleteById(id);
 	}
 
+	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
+	public void updateChallengePartial(@RequestBody Challenge challenge){
+		// to be implemented
+	}
+
 
 }
