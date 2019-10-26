@@ -20,7 +20,7 @@ public class Result {
     private Long challengeId;
 
     @NotEmpty
-    private Long userId;
+    private long userId;
 
     private boolean approved;
     private String status;
