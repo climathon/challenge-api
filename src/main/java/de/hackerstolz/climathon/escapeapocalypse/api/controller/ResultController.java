@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,6 +47,7 @@ public class ResultController {
     @RequestMapping(method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE})
     public void createResult(@RequestBody Result result){
         LOGGER.info("Create result");
+        result.setResultDate(new Date());
         resultRepository.save(result);
     }
 

@@ -38,7 +38,7 @@ public class LocationController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void createLocation(@RequestBody Location location, @PathVariable("id") Long id){
+    public void updateLocation(@RequestBody Location location, @PathVariable("id") Long id){
         Optional<Location> optionalLocation = locationRepository.findById(id);
         if(!optionalLocation.isPresent()) {
             throw new IllegalArgumentException("location not found");
@@ -47,7 +47,7 @@ public class LocationController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void createLocation(@RequestBody Location user){
+    public void updateLocation(@RequestBody Location user){
         locationRepository.save(user);
     }
 

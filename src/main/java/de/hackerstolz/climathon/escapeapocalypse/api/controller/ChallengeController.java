@@ -28,13 +28,13 @@ public class ChallengeController {
 
 	@RequestMapping(value="/{id}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
-	public Challenge readById(@PathVariable("id") Long id) {
+	public Challenge getChallengeById(@PathVariable("id") Long id) {
 		Optional<Challenge> optionalChallenge = challengeRepository.findById(id);
 		return optionalChallenge.get();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = { MediaType.APPLICATION_JSON_VALUE})
-	public void createChallenge(@RequestBody Challenge challenge, @PathVariable("id") Long id){
+	public void updateChallenge(@RequestBody Challenge challenge, @PathVariable("id") Long id){
 		LOGGER.info("Update challenge");
 		Optional<Challenge> challengeOptional = challengeRepository.findById(id);
 		if(!challengeOptional.isPresent()) {
@@ -45,7 +45,7 @@ public class ChallengeController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE})
-	public void createChallenge(@RequestBody Challenge challenge){
+	public void updateChallenge(@RequestBody Challenge challenge){
 		LOGGER.info("Create challenge");
 		challengeRepository.save(challenge);
 	}
@@ -60,6 +60,4 @@ public class ChallengeController {
 	public void updateChallengePartial(@RequestBody Challenge challenge){
 		// to be implemented
 	}
-
-
 }

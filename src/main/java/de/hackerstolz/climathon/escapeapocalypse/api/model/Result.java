@@ -16,11 +16,11 @@ public class Result {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotEmpty
+    @NotNull
     private Long challengeId;
 
-    @NotEmpty
-    private long userId;
+    @NotNull
+    private Long userId;
 
     private boolean approved;
     private String status;
