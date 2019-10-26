@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class U_Group {
+public class EaUserGroup {
     @Id
    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,10 +17,10 @@ public class U_Group {
     @NotEmpty
     private String name;
 
-    public U_Group() {
+    public EaUserGroup() {
     }
 
-    public U_Group(String name) {
+    public EaUserGroup(String name) {
         this.name = name;
     }
 
