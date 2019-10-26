@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class u_User {
+public class U_User {
 
     @Id
     @GeneratedValue
@@ -17,11 +17,11 @@ public class u_User {
 
     private String password;
 
-    public u_User() {
+    public U_User() {
         //jpa
     }
 
-    public u_User(String username, String email, String password) {
+    public U_User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
