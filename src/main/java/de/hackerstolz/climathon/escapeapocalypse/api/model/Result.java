@@ -14,30 +14,30 @@ public class Result {
     @Id
     @NotNull
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @NotEmpty
-    private long challengeId;
+    private Long challengeId;
 
     @NotEmpty
     private long userId;
-    private String status;
+
     private boolean approved;
-    private boolean inApproval;
+    private String status;
     private String proof;
     private Date resultDate;
 
     public Result() {
     }
 
-    public Result(@NotEmpty long challengeId, @NotEmpty long userId, boolean approved, boolean inApproval, String proof, Date resultDate, String status) {
+    public Result(@NotEmpty Long challengeId, @NotEmpty Long userId, boolean approved, String status, String proof,
+            Date resultDate) {
         this.challengeId = challengeId;
         this.userId = userId;
         this.approved = approved;
-        this.inApproval = inApproval;
+        this.status = status;
         this.proof = proof;
         this.resultDate = resultDate;
-        this.status = status;
     }
 
     public long getId() {
@@ -72,14 +72,6 @@ public class Result {
         this.approved = approved;
     }
 
-    public boolean isInApproval() {
-        return inApproval;
-    }
-
-    public void setInApproval(boolean inApproval) {
-        this.inApproval = inApproval;
-    }
-
     public String getProof() {
         return proof;
     }
@@ -94,6 +86,18 @@ public class Result {
 
     public void setResultDate(Date resultDate) {
         this.resultDate = resultDate;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setChallengeId(Long challengeId) {
+        this.challengeId = challengeId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getStatus() {
