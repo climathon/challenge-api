@@ -1,6 +1,7 @@
 package de.hackerstolz.climathon.escapeapocalypse.api.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.URL;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -23,6 +27,17 @@ public class Challenge {
 
 	@NotEmpty
 	private String name;
+
+	@NotEmpty
+	@JsonInclude
+	@Transient
+	@URL
+	private String iconUrl;
+
+	@NotEmpty
+	@JsonInclude
+	@Transient
+	private List<String> categories;
 
 	@JsonInclude
 	@Transient
@@ -54,9 +69,11 @@ public class Challenge {
 		// jpa
 	}
 
-	public Challenge(@NotEmpty String name, Date start, Date end, String description, long durationInSeconds,
-			int lifePoints, Location location) {
+	public Challenge(@NotEmpty String name, @NotEmpty String iconUrl, @NotEmpty List<String> categories, Date start,
+			Date end, String description, long durationInSeconds, int lifePoints, Location location) {
 		this.name = name;
+		this.iconUrl = iconUrl;
+		this.categories = categories;
 		this.start = start;
 		this.end = end;
 		this.description = description;
@@ -127,5 +144,21 @@ public class Challenge {
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	public String getIconUrl() {
+		return iconUrl;
+	}
+
+	public void setIconUrl(String iconUrl) {
+		this.iconUrl = iconUrl;
+	}
+
+	public List<String> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<String> categories) {
+		this.categories = categories;
 	}
 }

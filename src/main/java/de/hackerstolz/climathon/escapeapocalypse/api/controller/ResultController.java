@@ -54,4 +54,9 @@ public class ResultController {
         LOGGER.info("Delete challenge with ID:" + id);
         resultRepository.deleteById(id);
     }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public List<Result> search(@RequestParam("userId") Long userId) {
+        return resultRepository.findByUserId(userId);
+    }
 }
