@@ -1,6 +1,6 @@
 package de.hackerstolz.climathon.escapeapocalypse.api.controller;
 
-import de.hackerstolz.climathon.escapeapocalypse.api.model.U_User;
+import de.hackerstolz.climathon.escapeapocalypse.api.model.EaUser;
 import de.hackerstolz.climathon.escapeapocalypse.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,20 +17,20 @@ public class UserController {
     private UserRepository userRepository;
 
     @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public List<U_User> getUserAll() {
+    public List<EaUser> getUserAll() {
         return userRepository.findAll();
     }
 
     @RequestMapping(value="/{id}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
-    public U_User readById(@PathVariable("id") Long id) {
-        Optional<U_User> optionalUser = userRepository.findById(id);
+    public EaUser readById(@PathVariable("id") Long id) {
+        Optional<EaUser> optionalUser = userRepository.findById(id);
         return optionalUser.get();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateUser(@RequestBody U_User user, @PathVariable("id") Long id){
-        Optional<U_User> userOptional = userRepository.findById(id);
+    public void updateUser(@RequestBody EaUser user, @PathVariable("id") Long id){
+        Optional<EaUser> userOptional = userRepository.findById(id);
         if(!userOptional.isPresent()) {
             throw new IllegalArgumentException("challenge not found");
         }
@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void updateUser(@RequestBody U_User user){
+    public void updateUser(@RequestBody EaUser user){
         userRepository.save(user);
     }
 
