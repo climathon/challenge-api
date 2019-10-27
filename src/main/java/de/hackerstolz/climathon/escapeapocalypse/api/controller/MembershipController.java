@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(Constants.API + Constants.MEMBERSHIPS)
+@CrossOrigin("*")
 public class MembershipController {
     Logger LOGGER = LoggerFactory.getLogger(MembershipController.class);
 

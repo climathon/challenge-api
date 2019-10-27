@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(Constants.API + Constants.CHALLENGES)
+@CrossOrigin("*")
 public class ChallengeController {
 	Logger LOGGER = LoggerFactory.getLogger(ChallengeController.class);
 

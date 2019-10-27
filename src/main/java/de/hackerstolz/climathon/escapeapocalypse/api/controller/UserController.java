@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(Constants.API + Constants.USERS)
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired

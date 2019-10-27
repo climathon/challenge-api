@@ -16,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(Constants.API + Constants.RESULTS)
+@CrossOrigin("*")
 public class ResultController {
     Logger LOGGER = LoggerFactory.getLogger(ResultController.class);
 
