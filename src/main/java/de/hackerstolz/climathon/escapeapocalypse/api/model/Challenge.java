@@ -1,18 +1,11 @@
 package de.hackerstolz.climathon.escapeapocalypse.api.model;
 
-import java.time.LocalDate;
+import org.hibernate.validator.constraints.URL;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.URL;
+import java.time.LocalDate;
 
 @Entity
 public class Challenge {
@@ -41,6 +34,7 @@ public class Challenge {
 	private Long durationInSeconds;
 
 	private Integer lifePoints;
+	private Long collectionId;
 
 //	@OneToOne
 //	@JoinColumn(name = "locationId")
@@ -50,9 +44,7 @@ public class Challenge {
 		// jpa
 	}
 
-	public Challenge(@NotEmpty String name, @NotEmpty @URL String iconUrl, @NotEmpty String category,
-			LocalDate startDate, LocalDate endDate, String description, Long durationInSeconds, Integer lifePoints,
-			Long locationId) {
+	public Challenge(@NotEmpty String name, @NotEmpty @URL String iconUrl, @NotEmpty String category, LocalDate startDate, LocalDate endDate, String description, Long durationInSeconds, Integer lifePoints, Long collectionId, Long locationId) {
 		this.name = name;
 		this.iconUrl = iconUrl;
 		this.category = category;
@@ -61,6 +53,7 @@ public class Challenge {
 		this.description = description;
 		this.durationInSeconds = durationInSeconds;
 		this.lifePoints = lifePoints;
+		this.collectionId = collectionId;
 		this.locationId = locationId;
 	}
 
@@ -142,5 +135,13 @@ public class Challenge {
 
 	public void setLocationId(Long locationId) {
 		this.locationId = locationId;
+	}
+
+	public Long getCollectionId() {
+		return collectionId;
+	}
+
+	public void setCollectionId(Long collectionId) {
+		this.collectionId = collectionId;
 	}
 }
